@@ -7,8 +7,8 @@ namespace MiddlewareTest.Infra.Filter
     {
         public static void AddFilter(this MvcOptions options)
         {
-            options.Filters.Add(typeof(ExceptionFilter));
-            options.Filters.Add(typeof(ResourceFilter));
+            //options.Filters.Add(typeof(ValidationActionFilter));
+            //options.Filters.Add(typeof(ResourceFilter));
         }
     }
 }

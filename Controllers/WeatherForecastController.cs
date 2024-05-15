@@ -33,7 +33,7 @@ public class WeatherForecastController : ControllerBase
     }
     [HttpGet]
     [ValidationActionFilter]
-    public IEnumerable<WeatherForecast> GetByDate([FromQuery] string summary)
+    public IEnumerable<WeatherForecast> GetByDate([FromQuery] string? summary)
     {
         //throw new Exception();
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -48,6 +48,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet]
     public string GetTest()
     {
+        throw new Exception("get test error");
         return "hello world";
     }
 }

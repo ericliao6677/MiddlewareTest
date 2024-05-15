@@ -22,8 +22,8 @@ namespace MiddlewareTest.Infra.Filter
                 };
                 context.Result = new ObjectResult(response)
                 {
-                    // 401
-                    StatusCode = (int)HttpStatusCode.Unauthorized
+                    // 400
+                    StatusCode = (int)HttpStatusCode.BadRequest
                 };
             }
             else

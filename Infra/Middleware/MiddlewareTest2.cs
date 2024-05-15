@@ -6,12 +6,12 @@
 
         public MiddlewareTest2(RequestDelegate next) { _next = next; }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, IMessageWriter svc)
         {
-            context.Response.ContentType = "text/plain";
-            await context.Response.WriteAsync("Middleware 2 - request\n");
+            //throw new Exception("Middleware 2 Error");
+            svc.Write($"Middleware 2 - request");
             await _next(context);
-            await context.Response.WriteAsync("Middleware 2 - reponse\n");
+            svc.Write($"Middleware 2 - response");
         }
     }
 }

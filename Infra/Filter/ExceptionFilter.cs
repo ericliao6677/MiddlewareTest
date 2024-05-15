@@ -32,5 +32,15 @@ namespace MiddlewareTest.Infra.Filter
 
             return Task.CompletedTask;
         }
+
+
+    }
+
+    public class ExceptionFilter2 : IExceptionFilter
+    {
+        public void OnException(ExceptionContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

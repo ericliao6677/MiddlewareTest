@@ -8,7 +8,7 @@ using MiddlewareTest.Infra.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddScoped<IMessageWriter, LoggingMessageWriter>();
 builder.Services.AddControllers(options =>
 {
     options.AddFilter();
@@ -21,13 +21,14 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 
 
 app.UseHttpsRedirection();
@@ -39,9 +40,9 @@ app.UseAuthorization();
 
 //app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
-app.UseMiddlewareTest();
+//app.UseMiddlewareTest();
 
-app.UseMiddlewareTest2();
+//app.UseMiddlewareTest2();
 
 app.MapControllers();
 

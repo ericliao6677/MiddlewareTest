@@ -28,14 +28,14 @@ namespace MiddlewareTest.Infra.Middleware
                     Status = (int)HttpStatusCode.InternalServerError,
                     Type = "Server error",
                     Title = "Server error",
-                    Detail = "An internal server has occurred"
+                    Detail = $"An internal server has occurred {ex.Message}"
                 };
 
-                string json = JsonSerializer.Serialize(problem);
+                //string json = JsonSerializer.Serialize(problem);
 
-                context.Response.ContentType = "application/json";
+                //context.Response.ContentType = "application/json";
 
-                await context.Response.WriteAsync(json);
+                await context.Response.WriteAsJsonAsync(problem);
             }
         }
     }
